@@ -1,0 +1,9 @@
+{
+  "jupyter.lab.setting-icon": "ui-components:run",
+  "jupyter.lab.setting-icon-label": "Jupyter JBang Runner",
+  "title": "Jupyter JBang Runner",
+  "description": "Settings for the Jupyter JBang Runner extension.",
+  "type": "object",
+  "properties": {},
+  "additionalProperties": false
+}

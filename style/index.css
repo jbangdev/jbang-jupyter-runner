@@ -1,0 +1,12 @@
+/* Style for the jbang run button */
+.jbang-run-button {
+  margin-left: 4px;
+}
+
+.jbang-run-button:hover {
+  background-color: var(--jp-layout-color2);
+}
+
+.jbang-run-button:active {
+  background-color: var(--jp-layout-color3);
+}
