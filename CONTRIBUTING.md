@@ -264,8 +264,6 @@ refactor: extract terminal creation into helper function
 
 - Open an issue for bugs or feature requests
 - Check existing issues for similar problems
-- Look at [DEBUG_EXTENSION.md](./DEBUG_EXTENSION.md) for debugging tips
-- Review [LOCAL_TESTING.md](./LOCAL_TESTING.md) for setup help
 
 ## License
 

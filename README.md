@@ -34,7 +34,7 @@ pip install jbang-jupyter-runner
 
 ### For Development
 
-**Detailed guide**: See [CONTRIBUTING.md](./docs/DEVELOPMENT.md)
+**Detailed guide**: See [CONTRIBUTING.md](.CONTRIBUTING.md)
 
 ## Usage
 
