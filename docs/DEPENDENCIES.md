@@ -408,8 +408,3 @@ npm install --save-dev webpack-bundle-analyzer
 - `pyproject.toml` - Python package configuration (build dependencies)
 - `package.json` - Node.js dependencies and scripts
 - `package-lock.json` - Node.js dependency lock file
-
-**Next steps:**
-
-- See [DEVELOPMENT.md](./DEVELOPMENT.md) for complete setup guide
-- See [LOCAL_TESTING.md](./LOCAL_TESTING.md) for testing instructions
