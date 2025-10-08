@@ -5,6 +5,8 @@ A JupyterLab extension that adds a run button to `.java` and `.jsh` files, allow
 ![JupyterLab](https://img.shields.io/badge/JupyterLab-4.0+-orange.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
+![](docs/example.gif)
+
 ## Features
 
 - 🚀 **Run Button**: Adds a run button (▶️) to the toolbar of `.java` and `.jsh` files
@@ -107,133 +109,6 @@ jbang-jupyter-runner/
 └── tsconfig.json          # TypeScript configuration
 ```
 
-### Build Commands
-
-```bash
-# Clean build artifacts
-npm run clean
-
-# Build TypeScript only
-npm run build:lib
-
-# Build full extension
-npm run build:prod
-
-# Watch mode (auto-rebuild on changes)
-npm run watch
-
-# In another terminal (auto-reload JupyterLab)
-jupyter lab --watch
-```
-
-### Testing
-
-```bash
-# Run the test script to check installation
-./test-extension.sh
-
-# For comprehensive local testing
-./test-local.sh
-```
-
-See [LOCAL_TESTING.md](./LOCAL_TESTING.md) for detailed testing instructions.
-
-### Debugging
-
-See [DEBUG_EXTENSION.md](./DEBUG_EXTENSION.md) for debugging tips and common issues.
-
-Key debugging steps:
-
-1. Check browser console (F12) for `[jbang-jupyter-runner]` messages
-2. Verify extension is installed: `jupyter labextension list`
-3. Check for TypeScript compilation errors in build output
-
-## Architecture
-
-### Core Function: `runFileInTerminal`
-
-The extension's main logic is in a single helper function that:
-
-1. Auto-saves the file if needed
-2. Looks for an existing terminal for this file
-3. Reuses the terminal if found, or creates a new one
-4. Sends the jbang command to the terminal
-5. Activates the terminal to make it visible
-
-### Integration Points
-
-1. **Toolbar Button**: Added via `DocumentRegistry.IWidgetExtension`
-2. **Command Palette**: Registered command `jbang-jupyter-runner:run-file`
-3. **Terminal API**: Uses `@jupyterlab/terminal` for terminal management
-
-## Configuration
-
-Currently, the extension has no configuration options. The command format is fixed as:
-
-```bash
-jbang run "path/to/file.java"
-```
-
-## Contributing
-
-Contributions are welcome! Please:
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-## Troubleshooting
-
-### Extension not appearing
-
-```bash
-# Check if installed
-jupyter labextension list
-
-# Rebuild JupyterLab
-jupyter lab build --minimize=False
-
-# Clear cache and restart
-jupyter lab clean
-jupyter lab
-```
-
-### Run button not working
-
-1. Open browser console (F12)
-2. Look for error messages with `[jbang-jupyter-runner]` prefix
-3. Verify jbang is installed: `jbang version`
-4. Check the [DEBUG_EXTENSION.md](./DEBUG_EXTENSION.md) guide
-
-### Terminal not opening
-
-- Check browser console for "unique id property" errors
-- This usually means the extension needs to be rebuilt
-- Run `npm run build:lib` and refresh the browser
-
-## Documentation
-
-- [DEVELOPMENT.md](./docs/DEVELOPMENT.md) - Complete development setup guide
-- [LOCAL_TESTING.md](./docs/LOCAL_TESTING.md) - Development and local testing guide
-- [DEBUG_EXTENSION.md](./docs/DEBUG_EXTENSION.md) - Debugging guide
-- [CONTRIBUTING.md](./docs/CONTRIBUTING.md) - Contribution guidelines
-- [USAGE.md](./docs/USAGE.md) - Detailed usage guide
-- [AGENTS.MD](./AGENTS.MD) - AI agent context (architecture details)
-
 ## License
 
 MIT License - see LICENSE file for details
-
-## Credits
-
-Built with:
-
-- [JupyterLab](https://jupyterlab.readthedocs.io/)
-- [jbang](https://www.jbang.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-
-## Changelog
-
-See [CHANGES.md](../CHANGES.md) for version history and updates.
