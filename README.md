@@ -5,6 +5,7 @@ A JupyterLab extension that adds a run button to `.java` and `.jsh` files, allow
 ![JupyterLab](https://img.shields.io/badge/JupyterLab-4.0+-orange.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
+
 ## Features
 
 - 🚀 **Run Button**: Adds a run button (▶️) to the toolbar of `.java` and `.jsh` files
@@ -30,30 +31,7 @@ pip install jupyter-jbang-runner
 
 ### For Development
 
-See [LOCAL_TESTING.md](./LOCAL_TESTING.md) for detailed development setup instructions.
-
-Quick start:
-
-```bash
-# Clone and navigate to the extension directory
-cd jupyter-jbang-runner
-
-# Install dependencies
-npm install
-
-# Install Python package in development mode
-pip install -e .
-
-# Link extension to JupyterLab
-jupyter labextension develop . --overwrite
-
-# Build the extension
-npm run build:prod
-jupyter lab build --minimize=False
-
-# Start JupyterLab
-jupyter lab
-```
+**Detailed guide**: See [CONTRIBUTING.md](./docs/DEVELOPMENT.md)
 
 ## Usage
 
@@ -231,10 +209,12 @@ jupyter lab
 
 ## Documentation
 
-- [LOCAL_TESTING.md](./LOCAL_TESTING.md) - Development and local testing guide
-- [DEBUG_EXTENSION.md](./DEBUG_EXTENSION.md) - Debugging guide
-- [EXTENSION_SETUP.md](./EXTENSION_SETUP.md) - Initial setup notes
-- [USAGE.md](./USAGE.md) - Detailed usage guide
+- [DEVELOPMENT.md](./docs/DEVELOPMENT.md) - Complete development setup guide
+- [LOCAL_TESTING.md](./docs/LOCAL_TESTING.md) - Development and local testing guide
+- [DEBUG_EXTENSION.md](./docs/DEBUG_EXTENSION.md) - Debugging guide
+- [CONTRIBUTING.md](./docs/CONTRIBUTING.md) - Contribution guidelines
+- [USAGE.md](./docs/USAGE.md) - Detailed usage guide
+- [AGENTS.MD](./AGENTS.MD) - AI agent context (architecture details)
 
 ## License
 

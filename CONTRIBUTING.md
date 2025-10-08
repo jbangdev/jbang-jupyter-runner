@@ -15,18 +15,23 @@ Thank you for your interest in contributing! This guide will help you get starte
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd jupyter-jbang-runner
+   git clone https://github.com/jbangdev/jbang-jupyter-runner
+   cd jbang-jupyter-runner
    ```
 
-2. **Install dependencies**
+2. **Setup virtual dev environment for Jupyter**
+   ```bash
+   uv venv
+   source .venv/bin/activate
+   uv pip install -e .
+   ```
+2. **Install Node dependencies**
    ```bash
    npm install
    ```
 
 3. **Install in development mode**
    ```bash
-   pip install -e .
    jupyter labextension develop . --overwrite
    ```
 
@@ -87,38 +92,6 @@ Now you can:
    ```bash
    ./test-extension.sh
    ```
-
-## Code Style
-
-### TypeScript
-
-- Use 2 spaces for indentation
-- Use single quotes for strings
-- Add JSDoc comments for functions
-- Follow existing code patterns
-
-Example:
-```typescript
-/**
- * Helper function to run a file with jbang in a terminal
- */
-async function runFileInTerminal(
-  app: JupyterFrontEnd,
-  filePath: string,
-  context?: DocumentRegistry.IContext<any>
-): Promise<void> {
-  // Implementation...
-}
-```
-
-### Console Logging
-
-Use the `[jupyter-jbang-runner]` prefix for all console messages:
-
-```typescript
-console.log('[jupyter-jbang-runner] ✓ Terminal session started');
-console.error('[jupyter-jbang-runner] Failed to run file:', error);
-```
 
 ## Project Structure
 

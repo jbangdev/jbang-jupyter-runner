@@ -44,9 +44,11 @@ uv venv
 # Activate virtual environment
 source .venv/bin/activate
 
-# Install JupyterLab in virtual environment
-echo "📦 Installing JupyterLab in virtual environment..."
-uv pip install jupyterlab
+# Install development dependencies in virtual environment
+echo "📦 Installing development dependencies (JupyterLab + build tools)..."
+cd jupyter-jbang-runner
+uv pip install -r requirements-dev.txt
+cd ..
 
 # Build extension
 echo ""
