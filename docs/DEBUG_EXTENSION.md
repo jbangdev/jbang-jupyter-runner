@@ -48,8 +48,8 @@ JupyterLab extension jbang-jupyter-runner is activated!
 In a JupyterLab terminal:
 
 ```bash
-python -c "import jupyter_jbang_runner; print(jupyter_jbang_runner.__version__)"
-python -c "import jupyter_jbang_runner; print(jupyter_jbang_runner._jupyter_labextension_paths())"
+python -c "import jbang_jupyter_runner; print(jbang_jupyter_runner.__version__)"
+python -c "import jbang_jupyter_runner; print(jbang_jupyter_runner._jupyter_labextension_paths())"
 ```
 
 **Expected output:**
@@ -173,7 +173,7 @@ echo "=== Extension Installation Check ==="
 jupyter labextension list | grep -A 2 jbang-jupyter-runner
 
 echo -e "\n=== Python Package Check ==="
-python -c "import jupyter_jbang_runner; print('✓ Version:', jupyter_jbang_runner.__version__)" 2>&1
+python -c "import jbang_jupyter_runner; print('✓ Version:', jbang_jupyter_runner.__version__)" 2>&1
 
 echo -e "\n=== JupyterLab Version ==="
 jupyter lab --version

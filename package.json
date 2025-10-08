@@ -66,7 +66,7 @@
     },
     "jupyterlab": {
         "extension": true,
-        "outputDir": "jupyter_jbang_runner/labextension",
+        "outputDir": "jbang_jupyter_runner/labextension",
         "sharedPackages": {
             "@jupyterlab/application": {
                 "bundled": false,

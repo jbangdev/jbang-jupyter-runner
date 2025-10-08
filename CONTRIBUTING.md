@@ -108,7 +108,7 @@ jbang-jupyter-runner/
 │   └── runButton.ts       # Main logic (toolbar button, terminal management)
 ├── style/
 │   └── index.css          # Extension styles
-├── jupyter_jbang_runner/  # Python package
+├── jbang_jupyter_runner/  # Python package
 │   ├── __init__.py
 │   └── _version.py
 ├── package.json           # npm dependencies

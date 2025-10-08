@@ -97,7 +97,7 @@ jbang-jupyter-runner/
 │   ├── index.ts           # Extension entry point
 │   └── runButton.ts       # Run button implementation
 ├── style/                  # CSS styles
-├── jupyter_jbang_runner/  # Python package
+├── jbang_jupyter_runner/  # Python package
 │   ├── __init__.py
 │   ├── _version.py
 │   └── labextension/      # Built extension (generated)

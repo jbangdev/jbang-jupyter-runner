@@ -34,7 +34,7 @@ lib/
 *.tsbuildinfo
 
 # JupyterLab build outputs
-jupyter_jbang_runner/labextension/
+jbang_jupyter_runner/labextension/
 
 # Build logs
 build.log

@@ -42,21 +42,21 @@ test = [
 
 
 [tool.hatch.build.targets.sdist]
-artifacts = ["jupyter_jbang_runner/labextension"]
+artifacts = ["jbang_jupyter_runner/labextension"]
 exclude = [".github", "binder"]
 
 [tool.hatch.build.targets.wheel.shared-data]
-"jupyter_jbang_runner/labextension" = "share/jupyter/labextensions/jbang-jupyter-runner"
+"jbang_jupyter_runner/labextension" = "share/jupyter/labextensions/jbang-jupyter-runner"
 "install.json" = "share/jupyter/labextensions/jbang-jupyter-runner/install.json"
 
 [tool.hatch.build.hooks.jupyter-builder]
 dependencies = ["hatch-jupyter-builder>=0.5"]
 build-function = "hatch_jupyter_builder.npm_builder"
 ensured-targets = [
-    "jupyter_jbang_runner/labextension/static/style.js",
-    "jupyter_jbang_runner/labextension/package.json",
+    "jbang_jupyter_runner/labextension/static/style.js",
+    "jbang_jupyter_runner/labextension/package.json",
 ]
-skip-if-exists = ["jupyter_jbang_runner/labextension/static/style.js"]
+skip-if-exists = ["jbang_jupyter_runner/labextension/static/style.js"]
 
 [tool.hatch.build.hooks.jupyter-builder.build-kwargs]
 build_cmd = "build:prod"
@@ -66,7 +66,7 @@ npm = ["jlpm"]
 build_cmd = "install:extension"
 npm = ["jlpm"]
 source_dir = "src"
-build_dir = "jupyter_jbang_runner/labextension"
+build_dir = "jbang_jupyter_runner/labextension"
 
 [tool.jupyter-releaser.options]
 version_cmd = "hatch version"

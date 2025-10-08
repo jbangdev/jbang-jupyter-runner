@@ -39,7 +39,7 @@ All files needed for the extension are now in the `jbang-jupyter-runner/` direct
 ### 🏗️ Build Output (generated, gitignored)
 
 - **lib/** - Compiled JavaScript
-- **jupyter_jbang_runner/labextension/** - Built extension
+- **jbang_jupyter_runner/labextension/** - Built extension
 - **node_modules/** - npm dependencies
 - **build.log** - Build output log
 
@@ -62,8 +62,8 @@ cp -r /path/to/jupyter-java-binder/jbang-jupyter-runner/* .
 
 # 3. Clean up build artifacts
 rm -rf node_modules lib build.log
-rm -rf jupyter_jbang_runner/labextension
-rm -rf jupyter_jbang_runner/__pycache__
+rm -rf jbang_jupyter_runner/labextension
+rm -rf jbang_jupyter_runner/__pycache__
 
 # 4. Create initial commit
 git add .
