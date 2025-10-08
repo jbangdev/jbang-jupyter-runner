@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "jbang-jupyter-runner"
-version = "0.1.0"
+version = "0.1.2"
 description = "Jupyter Lab extension to run .java and .jsh files with jbang"
 readme = "README.md"
 license = { file = "LICENSE" }

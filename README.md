@@ -5,7 +5,9 @@ A JupyterLab extension that adds a run button to `.java` and `.jsh` files, allow
 ![JupyterLab](https://img.shields.io/badge/JupyterLab-4.0+-orange.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-![](docs/example.gif)
+## Demo 
+
+![](https://raw.githubusercontent.com/jbangdev/jbang-jupyter-runner/main/docs/example.gif)
 
 ## Features
 
