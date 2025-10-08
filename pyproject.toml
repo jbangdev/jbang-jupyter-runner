@@ -4,13 +4,12 @@ build-backend = "hatchling.build"
 
 [project]
 name = "jupyter-jbang-runner"
-version = "1.0.0"
 description = "Jupyter Lab extension to run .java and .jsh files with jbang"
 readme = "README.md"
 license = { file = "LICENSE" }
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 authors = [
-    { name = "Max Rydahl Andersen", email = "max@xam.dk" }
+    { name = "JBang Development Team" }
 ]
 keywords = ["jupyter", "jupyterlab", "jupyterlab-extension", "java", "jbang"]
 classifiers = [
@@ -22,14 +21,18 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
 ]
 dependencies = [
 ]
+dynamic = ["version", "description", "authors", "urls", "keywords"]
+
+[tool.hatch.version]
+source = "nodejs"
 
 [project.optional-dependencies]
 test = [
@@ -39,7 +42,6 @@ test = [
     "pytest-cov",
     "pytest-jupyter[server]>=0.6.0"
 ]
-
 
 [tool.hatch.build.targets.sdist]
 artifacts = ["jupyter_jbang_runner/labextension"]
