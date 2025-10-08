@@ -14,6 +14,7 @@ Thank you for your interest in contributing! This guide will help you get starte
 ### Initial Setup
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/jbangdev/jbang-jupyter-runner
    cd jbang-jupyter-runner
@@ -25,17 +26,19 @@ Thank you for your interest in contributing! This guide will help you get starte
    source .venv/bin/activate
    uv pip install -e .
    ```
-2. **Install Node dependencies**
+3. **Install Node dependencies**
+
    ```bash
-   npm install
+   jlpm install
    ```
 
-3. **Install in development mode**
+4. **Install in development mode**
+
    ```bash
    jupyter labextension develop . --overwrite
    ```
 
-4. **Build the extension**
+5. **Build the extension**
    ```bash
    npm run build:prod
    jupyter lab build --minimize=False
@@ -46,6 +49,7 @@ Thank you for your interest in contributing! This guide will help you get starte
 ### Making Changes
 
 1. **Create a feature branch**
+
    ```bash
    git checkout -b feature/your-feature-name
    ```
@@ -71,6 +75,7 @@ jupyter lab --watch
 ```
 
 Now you can:
+
 - Edit `src/*.ts` files
 - Save your changes
 - Refresh the browser to see updates
@@ -78,6 +83,7 @@ Now you can:
 ### Testing Your Changes
 
 1. **Build and test**
+
    ```bash
    ./quick-rebuild.sh
    ```
@@ -115,6 +121,7 @@ jupyter-jbang-runner/
 ### `runFileInTerminal` Function
 
 The core logic that:
+
 1. Auto-saves files if needed
 2. Finds or creates terminals
 3. Executes jbang commands
@@ -132,6 +139,7 @@ Registers the `jupyter-jbang-runner:run-file` command for the command palette.
 ### Browser Console
 
 Always check the browser console (F12) when debugging:
+
 - Look for `[jupyter-jbang-runner]` prefixed messages
 - Check for JavaScript errors
 - Verify terminal creation and command sending
@@ -139,12 +147,14 @@ Always check the browser console (F12) when debugging:
 ### Common Issues
 
 **Extension not loading:**
+
 ```bash
 jupyter labextension list  # Check if installed
 jupyter lab build          # Rebuild JupyterLab
 ```
 
 **Changes not appearing:**
+
 ```bash
 npm run clean
 npm run build:lib
@@ -152,6 +162,7 @@ npm run build:lib
 ```
 
 **Terminal issues:**
+
 - Check that `term.id` is set before adding to shell
 - Verify terminal session is available before sending commands
 
@@ -176,6 +187,7 @@ npm run build:lib
 Create these test files:
 
 **Test.java**
+
 ```java
 ///usr/bin/env jbang "$0" "$@" ; exit $?
 
@@ -187,6 +199,7 @@ public class Test {
 ```
 
 **test.jsh**
+
 ```java
 ///usr/bin/env jbang "$0" "$@" ; exit $?
 
@@ -198,12 +211,14 @@ System.out.println("Hello from test.jsh!");
 1. **Update documentation** if needed
 2. **Test thoroughly** using the checklist above
 3. **Commit with clear messages**
+
    ```bash
    git commit -m "feat: add support for X"
    git commit -m "fix: resolve terminal reuse issue"
    ```
 
 4. **Push your branch**
+
    ```bash
    git push origin feature/your-feature-name
    ```
@@ -226,6 +241,7 @@ Follow conventional commits:
 - `chore:` - Maintenance tasks
 
 Examples:
+
 ```
 feat: add auto-save before running files
 fix: resolve terminal ID collision issue
@@ -258,4 +274,3 @@ By contributing, you agree that your contributions will be licensed under the MI
 ## Questions?
 
 Feel free to open an issue for any questions about contributing!
-

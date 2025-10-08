@@ -5,6 +5,7 @@ This document provides a complete reference of all dependencies required for the
 ## Overview
 
 The extension has dependencies in three categories:
+
 1. **System Tools** - Required on your machine
 2. **Python Packages** - Installed via pip/uv
 3. **Node.js Packages** - Installed via npm
@@ -13,15 +14,16 @@ The extension has dependencies in three categories:
 
 These must be installed on your system before starting:
 
-| Tool | Version | Purpose | Installation |
-|------|---------|---------|--------------|
-| **Python** | 3.8+ | Runtime environment | [python.org](https://www.python.org/downloads/) |
-| **Node.js** | 16+ | JavaScript runtime | [nodejs.org](https://nodejs.org/) |
-| **npm** | 7+ | Node package manager | Included with Node.js |
-| **uv** | latest | Fast Python package manager | `curl -LsSf https://astral.sh/uv/install.sh \| sh` |
-| **jbang** | latest | Java/JShell execution tool | `curl -Ls https://sh.jbang.dev \| bash -s - app setup` |
+| Tool        | Version | Purpose                     | Installation                                           |
+| ----------- | ------- | --------------------------- | ------------------------------------------------------ |
+| **Python**  | 3.8+    | Runtime environment         | [python.org](https://www.python.org/downloads/)        |
+| **Node.js** | 16+     | JavaScript runtime          | [nodejs.org](https://nodejs.org/)                      |
+| **npm**     | 7+      | Node package manager        | Included with Node.js                                  |
+| **uv**      | latest  | Fast Python package manager | `curl -LsSf https://astral.sh/uv/install.sh \| sh`     |
+| **jbang**   | latest  | Java/JShell execution tool  | `curl -Ls https://sh.jbang.dev \| bash -s - app setup` |
 
 **Check your versions:**
+
 ```bash
 python --version    # Should be 3.8+
 node --version      # Should be 16+
@@ -56,12 +58,12 @@ requires = [
 ]
 ```
 
-| Package | Version | Purpose |
-|---------|---------|---------|
-| `hatchling` | ≥1.5.0 | Modern Python build backend |
-| `jupyterlab` | 4.0.0 - 4.9.9 | JupyterLab framework (required at build time) |
-| `hatch-nodejs-version` | ≥0.3.2 | Syncs version between package.json and pyproject.toml |
-| `hatch-jupyter-builder` | ≥0.5 | Builds JupyterLab extensions (from jupyter-builder hook) |
+| Package                 | Version       | Purpose                                                  |
+| ----------------------- | ------------- | -------------------------------------------------------- |
+| `hatchling`             | ≥1.5.0        | Modern Python build backend                              |
+| `jupyterlab`            | 4.0.0 - 4.9.9 | JupyterLab framework (required at build time)            |
+| `hatch-nodejs-version`  | ≥0.3.2        | Syncs version between package.json and pyproject.toml    |
+| `hatch-jupyter-builder` | ≥0.5          | Builds JupyterLab extensions (from jupyter-builder hook) |
 
 **Note**: These are automatically installed when you run `pip install -e .`
 
@@ -86,15 +88,16 @@ pytest-jupyter[server]>=0.6.0
 coverage
 ```
 
-| Package | Purpose |
-|---------|---------|
-| `pytest` | Testing framework |
-| `pytest-asyncio` | Async test support |
-| `pytest-cov` | Code coverage |
+| Package                  | Purpose                      |
+| ------------------------ | ---------------------------- |
+| `pytest`                 | Testing framework            |
+| `pytest-asyncio`         | Async test support           |
+| `pytest-cov`             | Code coverage                |
 | `pytest-jupyter[server]` | JupyterLab testing utilities |
-| `coverage` | Coverage reporting |
+| `coverage`               | Coverage reporting           |
 
 **Install all at once:**
+
 ```bash
 uv pip install -r requirements-dev.txt
 ```
@@ -121,16 +124,16 @@ These are JupyterLab APIs used by the extension:
 }
 ```
 
-| Package | Purpose |
-|---------|---------|
-| `@jupyterlab/application` | Main app integration |
-| `@jupyterlab/apputils` | UI utilities |
-| `@jupyterlab/docregistry` | Document/widget registry |
-| `@jupyterlab/fileeditor` | File editor integration |
-| `@jupyterlab/terminal` | Terminal management (core feature) |
-| `@jupyterlab/services` | Backend services API |
-| `@jupyterlab/ui-components` | UI components (buttons, icons) |
-| Others | Additional JupyterLab APIs |
+| Package                     | Purpose                            |
+| --------------------------- | ---------------------------------- |
+| `@jupyterlab/application`   | Main app integration               |
+| `@jupyterlab/apputils`      | UI utilities                       |
+| `@jupyterlab/docregistry`   | Document/widget registry           |
+| `@jupyterlab/fileeditor`    | File editor integration            |
+| `@jupyterlab/terminal`      | Terminal management (core feature) |
+| `@jupyterlab/services`      | Backend services API               |
+| `@jupyterlab/ui-components` | UI components (buttons, icons)     |
+| Others                      | Additional JupyterLab APIs         |
 
 **Note**: All JupyterLab packages are marked as "singleton" in the extension config, meaning they're provided by JupyterLab itself, not bundled with the extension.
 
@@ -153,16 +156,17 @@ Tools for building and testing:
 }
 ```
 
-| Package | Purpose |
-|---------|---------|
-| `typescript` | TypeScript compiler (main build tool) |
-| `@jupyterlab/builder` | JupyterLab extension builder |
-| `eslint` | JavaScript/TypeScript linter |
-| `prettier` | Code formatter |
-| `rimraf` | Cross-platform file deletion |
-| `npm-run-all` | Run multiple npm scripts |
+| Package               | Purpose                               |
+| --------------------- | ------------------------------------- |
+| `typescript`          | TypeScript compiler (main build tool) |
+| `@jupyterlab/builder` | JupyterLab extension builder          |
+| `eslint`              | JavaScript/TypeScript linter          |
+| `prettier`            | Code formatter                        |
+| `rimraf`              | Cross-platform file deletion          |
+| `npm-run-all`         | Run multiple npm scripts              |
 
 **Install all at once:**
+
 ```bash
 npm install
 ```
@@ -201,12 +205,15 @@ jupyter lab build --minimize=False
 What do you **absolutely need** to get started?
 
 ### For End Users (just using the extension)
+
 ```bash
 pip install jupyter-jbang-runner
 ```
+
 That's it! No other Python packages needed.
 
 ### For Developers (minimum)
+
 ```bash
 # Python side
 uv venv && source .venv/bin/activate
@@ -223,6 +230,7 @@ jupyter lab build
 ```
 
 ### For Contributors (full setup)
+
 ```bash
 # Python side
 uv venv && source .venv/bin/activate
@@ -292,6 +300,7 @@ jupyter-jbang-runner
 ### "ModuleNotFoundError: No module named 'jupyterlab'"
 
 JupyterLab not installed:
+
 ```bash
 source .venv/bin/activate
 uv pip install jupyterlab
@@ -300,6 +309,7 @@ uv pip install jupyterlab
 ### "Cannot find module '@jupyterlab/...'"
 
 Node modules not installed:
+
 ```bash
 rm -rf node_modules package-lock.json
 npm install
@@ -308,6 +318,7 @@ npm install
 ### "hatchling not found" or build errors
 
 Build dependencies not installed:
+
 ```bash
 uv pip install -r requirements-dev.txt
 # or
@@ -351,6 +362,7 @@ pip install -e .
 - **Compatible**: Drop-in replacement for pip
 
 But you can use regular pip if you prefer:
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate
@@ -360,17 +372,20 @@ pip install -r requirements-dev.txt
 ## Optional Dependencies
 
 ### For Production Builds
+
 ```bash
 # Minimize bundle size
 jupyter lab build --minimize
 ```
 
 ### For Documentation
+
 ```bash
 pip install sphinx sphinx-rtd-theme
 ```
 
 ### For Profiling
+
 ```bash
 pip install py-spy
 npm install --save-dev webpack-bundle-analyzer
@@ -380,20 +395,21 @@ npm install --save-dev webpack-bundle-analyzer
 
 **Quick reference:**
 
-| Setup Type | Python Command | Node Command |
-|------------|----------------|--------------|
-| Minimal | `uv pip install jupyterlab` | `npm install` |
-| Development | `uv pip install -r requirements-dev.txt` | `npm install` |
-| Testing | `+ pytest pytest-jupyter` | Same |
-| Documentation | `+ sphinx` | Same |
+| Setup Type    | Python Command                           | Node Command  |
+| ------------- | ---------------------------------------- | ------------- |
+| Minimal       | `uv pip install jupyterlab`              | `npm install` |
+| Development   | `uv pip install -r requirements-dev.txt` | `npm install` |
+| Testing       | `+ pytest pytest-jupyter`                | Same          |
+| Documentation | `+ sphinx`                               | Same          |
 
 **Key files:**
+
 - `requirements-dev.txt` - Python dependencies for development
 - `pyproject.toml` - Python package configuration (build dependencies)
 - `package.json` - Node.js dependencies and scripts
 - `package-lock.json` - Node.js dependency lock file
 
 **Next steps:**
+
 - See [DEVELOPMENT.md](./DEVELOPMENT.md) for complete setup guide
 - See [LOCAL_TESTING.md](./LOCAL_TESTING.md) for testing instructions
-

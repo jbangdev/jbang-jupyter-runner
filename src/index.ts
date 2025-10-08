@@ -30,7 +30,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
 
     // Add run button to file editors
     addRunButton(app, docManager, translator, palette);
-    
+
     console.log('[jupyter-jbang-runner] ✓ Extension activated successfully!');
   }
 };

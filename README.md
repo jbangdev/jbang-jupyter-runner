@@ -5,7 +5,6 @@ A JupyterLab extension that adds a run button to `.java` and `.jsh` files, allow
 ![JupyterLab](https://img.shields.io/badge/JupyterLab-4.0+-orange.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-
 ## Features
 
 - 🚀 **Run Button**: Adds a run button (▶️) to the toolbar of `.java` and `.jsh` files
@@ -44,6 +43,7 @@ pip install jupyter-jbang-runner
 Create a simple Java file to test:
 
 **HelloWorld.java**
+
 ```java
 ///usr/bin/env jbang "$0" "$@" ; exit $?
 
@@ -57,6 +57,7 @@ public class HelloWorld {
 Or a JShell script:
 
 **example.jsh**
+
 ```java
 ///usr/bin/env jbang "$0" "$@" ; exit $?
 //DEPS org.apache.commons:commons-lang3:3.12.0
@@ -71,6 +72,7 @@ System.out.println(StringUtils.capitalize("hello world"));
 ### Terminal Management
 
 The extension creates one terminal per file:
+
 - **First run**: Creates a new terminal named `jbang-FileName.java`
 - **Subsequent runs**: Reuses the same terminal, just sends a new command
 - **Different files**: Each file gets its own dedicated terminal
@@ -78,6 +80,7 @@ The extension creates one terminal per file:
 ### Auto-save Feature
 
 Before executing, the extension:
+
 1. Checks if the file has unsaved changes
 2. Automatically saves the file if needed
 3. Then runs the jbang command with the latest code
@@ -140,6 +143,7 @@ See [LOCAL_TESTING.md](./LOCAL_TESTING.md) for detailed testing instructions.
 See [DEBUG_EXTENSION.md](./DEBUG_EXTENSION.md) for debugging tips and common issues.
 
 Key debugging steps:
+
 1. Check browser console (F12) for `[jupyter-jbang-runner]` messages
 2. Verify extension is installed: `jupyter labextension list`
 3. Check for TypeScript compilation errors in build output
@@ -149,6 +153,7 @@ Key debugging steps:
 ### Core Function: `runFileInTerminal`
 
 The extension's main logic is in a single helper function that:
+
 1. Auto-saves the file if needed
 2. Looks for an existing terminal for this file
 3. Reuses the terminal if found, or creates a new one
@@ -172,6 +177,7 @@ jbang run "path/to/file.java"
 ## Contributing
 
 Contributions are welcome! Please:
+
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
@@ -223,6 +229,7 @@ MIT License - see LICENSE file for details
 ## Credits
 
 Built with:
+
 - [JupyterLab](https://jupyterlab.readthedocs.io/)
 - [jbang](https://www.jbang.dev/)
 - [TypeScript](https://www.typescriptlang.org/)

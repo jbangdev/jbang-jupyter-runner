@@ -9,11 +9,13 @@ jupyter labextension list
 ```
 
 **Expected output:**
+
 ```
 jupyter-jbang-runner v1.0.0 enabled OK (python, jupyter-jbang-runner)
 ```
 
 **If it shows "uninstalled" or is missing:**
+
 - The extension wasn't properly installed during postBuild
 - Check the build logs for errors during `pip install -e .`
 
@@ -29,11 +31,13 @@ This is the **most important** debugging step:
 4. Look for errors or messages related to `jupyter-jbang-runner`
 
 **Expected message:**
+
 ```
 JupyterLab extension jupyter-jbang-runner is activated!
 ```
 
 **Common errors to look for:**
+
 - Module loading errors (e.g., "Failed to fetch module")
 - JavaScript errors in the extension code
 - TypeScript compilation errors that weren't caught
@@ -49,6 +53,7 @@ python -c "import jupyter_jbang_runner; print(jupyter_jbang_runner._jupyter_labe
 ```
 
 **Expected output:**
+
 ```
 1.0.0
 [{'src': 'labextension', 'dest': 'jupyter-jbang-runner'}]
@@ -101,11 +106,13 @@ This will show more detailed logging in the terminal.
 ### Issue: Extension shows as installed but run button doesn't appear
 
 **Possible causes:**
+
 1. **JavaScript not loading**: Check browser console for module loading errors
 2. **File type detection failing**: The extension only adds buttons to `.java` and `.jsh` files
 3. **Toolbar access issue**: The extension may not be able to access the file editor's toolbar
 
 **Debug steps:**
+
 1. Open browser console
 2. Open a `.java` file
 3. Look for any JavaScript errors
@@ -118,11 +125,13 @@ This might be a timing issue or the toolbar API changed. Check the browser conso
 ### Issue: "jupyter-jbang-runner needs to be included in build"
 
 This means `jupyter lab build` wasn't run or failed. Check:
+
 ```bash
 jupyter labextension list
 ```
 
 If it shows as "uninstalled", rebuild:
+
 ```bash
 jupyter lab build --minimize=False
 ```
@@ -133,7 +142,9 @@ Add this to the browser console to test if the extension is loaded:
 
 ```javascript
 // Check if the extension is registered
-console.log(window.jupyterapp?.commands?.hasCommand('jupyter-jbang-runner:run-file'));
+console.log(
+  window.jupyterapp?.commands?.hasCommand('jupyter-jbang-runner:run-file')
+);
 ```
 
 Should return `true` if the extension loaded correctly.
@@ -141,12 +152,14 @@ Should return `true` if the extension loaded correctly.
 ## 10. Check Network Tab
 
 In browser DevTools:
+
 1. Go to **Network** tab
 2. Reload JupyterLab
 3. Filter by "jbang" or "jupyter-jbang-runner"
 4. Check if the extension's JavaScript files are loading (should see `remoteEntry.*.js`)
 
 **If files are missing or returning 404:**
+
 - The extension wasn't properly built or installed
 - Run `jupyter lab build` again
 
@@ -177,6 +190,7 @@ which jbang && echo "✓ jbang found" || echo "✗ jbang not found"
 Based on the symptoms (no errors but no button), the most likely cause is:
 
 **The extension's JavaScript code is not properly accessing the file editor's toolbar**, possibly due to:
+
 1. Timing issues (trying to add button before toolbar is ready)
 2. API changes in JupyterLab 4.x
 3. The file editor widget structure is different than expected

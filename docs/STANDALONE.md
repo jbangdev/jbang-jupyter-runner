@@ -7,6 +7,7 @@ This extension is now fully self-contained and ready to be moved to its own repo
 All files needed for the extension are now in the `jupyter-jbang-runner/` directory:
 
 ### 📚 Documentation
+
 - **README.md** - Main documentation with features, installation, and usage
 - **CONTRIBUTING.md** - Guidelines for contributors
 - **CHANGELOG.md** - Version history and development notes
@@ -16,11 +17,13 @@ All files needed for the extension are now in the `jupyter-jbang-runner/` direct
 - **USAGE.md** - Detailed usage guide
 
 ### 🔧 Source Code
+
 - **src/index.ts** - Extension entry point and registration
 - **src/runButton.ts** - Main logic (toolbar button, terminal management)
 - **style/index.css** - Extension styles
 
 ### 📦 Package Configuration
+
 - **package.json** - npm dependencies and build scripts
 - **pyproject.toml** - Python package configuration
 - **tsconfig.json** - TypeScript configuration
@@ -28,17 +31,20 @@ All files needed for the extension are now in the `jupyter-jbang-runner/` direct
 - **LICENSE** - MIT License
 
 ### 🧪 Testing & Development
+
 - **test-extension.sh** - Quick extension check script
 - **test-local.sh** - Full local testing setup script
 - **quick-rebuild.sh** - Fast rebuild for development
 
 ### 🏗️ Build Output (generated, gitignored)
+
 - **lib/** - Compiled JavaScript
 - **jupyter_jbang_runner/labextension/** - Built extension
 - **node_modules/** - npm dependencies
 - **build.log** - Build output log
 
 ### 🚫 Git Configuration
+
 - **.gitignore** - Ignores build artifacts and temporary files
 
 ## Moving to a Separate Repository
@@ -73,6 +79,7 @@ git push -u origin main
 Once in its own repository:
 
 ### First Time Setup
+
 ```bash
 # Clone the repository
 git clone <repository-url>
@@ -91,6 +98,7 @@ jupyter lab build --minimize=False
 ```
 
 ### Daily Development
+
 ```bash
 # Terminal 1: Watch TypeScript
 npm run watch
@@ -102,6 +110,7 @@ jupyter lab --watch
 ```
 
 ### Testing
+
 ```bash
 # Quick test
 ./test-extension.sh
@@ -116,11 +125,13 @@ jupyter lab --watch
 ## Publishing
 
 ### To npm (optional)
+
 ```bash
 npm publish
 ```
 
 ### To PyPI
+
 ```bash
 # Build distributions
 python -m build
@@ -132,21 +143,27 @@ python -m twine upload dist/*
 ## Dependencies
 
 ### Runtime
+
 - JupyterLab 4.0+
 - jbang (must be installed separately)
 
 ### Development
+
 - Node.js 16+
 - Python 3.8+
 - npm
 
 ### Python Packages
+
 All listed in `pyproject.toml`:
+
 - jupyterlab>=4.0.0
 
 ### npm Packages
+
 All listed in `package.json`:
-- @jupyterlab/* packages
+
+- @jupyterlab/\* packages
 - TypeScript
 - Build tools
 
@@ -162,7 +179,8 @@ All listed in `package.json`:
 ## What's Not Included
 
 The parent directory still contains:
-- **Example files** (HelloWorld.java, example.jsh, *.ipynb) - These are for testing the binder setup, not part of the extension
+
+- **Example files** (HelloWorld.java, example.jsh, \*.ipynb) - These are for testing the binder setup, not part of the extension
 - **postBuild** - Binder build script
 - **requirements.txt** - Binder Python requirements
 - **readme.md** - Binder project documentation
@@ -172,25 +190,29 @@ These are specific to the Jupyter Binder demo and should NOT be moved with the e
 ## Architecture Highlights
 
 ### Core Function
+
 ```typescript
 async function runFileInTerminal(
   app: JupyterFrontEnd,
   filePath: string,
   context?: DocumentRegistry.IContext<any>
-): Promise<void>
+): Promise<void>;
 ```
 
 This function:
+
 1. Auto-saves the file if needed
 2. Looks for existing terminal for this file
 3. Reuses or creates terminal
 4. Sends jbang command
 
 ### Extension Registration
+
 - **Toolbar button**: via `DocumentRegistry.IWidgetExtension`
 - **Command palette**: via `app.commands.addCommand`
 
 ### Terminal Management
+
 - One terminal per file
 - Terminal ID: `jbang-{filename}`
 - Auto-activate when run
@@ -198,6 +220,7 @@ This function:
 ## Success Metrics
 
 The extension successfully:
+
 - ✅ Compiles without TypeScript errors
 - ✅ Installs in JupyterLab
 - ✅ Shows run button on .java and .jsh files
@@ -221,7 +244,7 @@ The extension successfully:
 ## Questions?
 
 All documentation is included. Start with:
+
 - **README.md** for overview
 - **CONTRIBUTING.md** for development
 - **LOCAL_TESTING.md** for setup help
-
