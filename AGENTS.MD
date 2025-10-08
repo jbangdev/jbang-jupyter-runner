@@ -81,7 +81,7 @@ if (context && context.model.dirty) {
 
 **Two entry points** both call the same helper:
 1. Toolbar button (`RunButtonExtension.createNew`)
-2. Command palette (`jupyter-jbang-runner:run-file`)
+2. Command palette (`jbang-jupyter-runner:run-file`)
 
 **Why**: DRY principle - changes in one place affect both.
 
@@ -115,7 +115,7 @@ src/
 ### Extension Registration (index.ts)
 ```typescript
 const extension: JupyterFrontEndPlugin<void> = {
-  id: 'jupyter-jbang-runner:plugin',
+  id: 'jbang-jupyter-runner:plugin',
   autoStart: true,
   requires: [IDocumentManager, ITranslator],
   optional: [ICommandPalette],
@@ -151,10 +151,10 @@ export class RunButtonExtension implements DocumentRegistry.IWidgetExtension<any
 ## Important Implementation Details
 
 ### Console Logging Convention
-**ALWAYS** use `[jupyter-jbang-runner]` prefix:
+**ALWAYS** use `[jbang-jupyter-runner]` prefix:
 ```typescript
-console.log('[jupyter-jbang-runner] ✓ Terminal session started');
-console.error('[jupyter-jbang-runner] Failed to run file:', error);
+console.log('[jbang-jupyter-runner] ✓ Terminal session started');
+console.error('[jbang-jupyter-runner] Failed to run file:', error);
 ```
 
 **Why**: Easy to filter in browser console, helps debugging.
@@ -185,7 +185,7 @@ const command = `jbang run "${filePath}"\n`;  // Note the \n at end!
 
 ### Debugging Strategy
 
-1. **Check browser console** (F12) for `[jupyter-jbang-runner]` messages
+1. **Check browser console** (F12) for `[jbang-jupyter-runner]` messages
 2. **Verify extension loaded**: `jupyter labextension list`
 3. **Check TypeScript compilation**: Look for errors in `npm run build:lib`
 4. **Common issue**: Old JavaScript cached - hard refresh (Cmd+Shift+R)
@@ -375,7 +375,7 @@ interface JBangRunnerConfig {
 ### Manual Test Script
 ```bash
 # 1. Install in dev mode
-cd jupyter-jbang-runner
+cd jbang-jupyter-runner
 pip install -e .
 jupyter labextension develop . --overwrite
 npm run build:prod
@@ -387,7 +387,7 @@ jupyter lab
 # 3. Create Test.java
 # 4. Click run button
 # 5. Check console for:
-#    - [jupyter-jbang-runner] messages
+#    - [jbang-jupyter-runner] messages
 #    - No errors
 #    - Terminal output
 
@@ -398,14 +398,14 @@ jupyter lab
 ### Verify Installation
 ```bash
 jupyter labextension list
-# Should show: jupyter-jbang-runner v1.0.0 enabled OK
+# Should show: jbang-jupyter-runner v1.0.0 enabled OK
 ```
 
 ## Emergency Fixes
 
 ### If completely broken:
 ```bash
-cd jupyter-jbang-runner
+cd jbang-jupyter-runner
 npm run clean
 rm -rf node_modules lib
 npm install
@@ -450,7 +450,7 @@ When starting work:
 
 Extension working correctly when:
 - ✅ `jupyter labextension list` shows it enabled
-- ✅ Browser console shows `[jupyter-jbang-runner] ✓ Extension activated`
+- ✅ Browser console shows `[jbang-jupyter-runner] ✓ Extension activated`
 - ✅ Run button appears on .java files
 - ✅ Console shows terminal creation logs
 - ✅ Terminal executes jbang command

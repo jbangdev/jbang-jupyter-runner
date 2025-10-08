@@ -102,7 +102,7 @@ Now you can:
 ## Project Structure
 
 ```
-jupyter-jbang-runner/
+jbang-jupyter-runner/
 ├── src/
 │   ├── index.ts           # Extension registration
 │   └── runButton.ts       # Main logic (toolbar button, terminal management)
@@ -132,7 +132,7 @@ Adds the run button to file editor toolbars for `.java` and `.jsh` files.
 
 ### Command Registration
 
-Registers the `jupyter-jbang-runner:run-file` command for the command palette.
+Registers the `jbang-jupyter-runner:run-file` command for the command palette.
 
 ## Debugging
 
@@ -140,7 +140,7 @@ Registers the `jupyter-jbang-runner:run-file` command for the command palette.
 
 Always check the browser console (F12) when debugging:
 
-- Look for `[jupyter-jbang-runner]` prefixed messages
+- Look for `[jbang-jupyter-runner]` prefixed messages
 - Check for JavaScript errors
 - Verify terminal creation and command sending
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Install the jupyter-jbang-runner extension
-echo "Installing jupyter-jbang-runner extension..."
+# Install the jbang-jupyter-runner extension
+echo "Installing jbang-jupyter-runner extension..."
 
 # Install npm dependencies
 npm install --no-prepare
@@ -18,4 +18,4 @@ jupyter labextension develop . --overwrite
 # Build JupyterLab to include the extension
 jupyter lab build --minimize=False
 
-echo "jupyter-jbang-runner extension installed successfully!"
+echo "jbang-jupyter-runner extension installed successfully!"

@@ -30,7 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Built for JupyterLab 4.0+
 - Uses `@jupyterlab/terminal` for terminal management
 - Implements `DocumentRegistry.IWidgetExtension` for toolbar buttons
-- Registers command `jupyter-jbang-runner:run-file` for command palette
+- Registers command `jbang-jupyter-runner:run-file` for command palette
 
 ### Documentation
 

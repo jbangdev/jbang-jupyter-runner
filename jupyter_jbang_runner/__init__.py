@@ -10,5 +10,5 @@ def _jupyter_labextension_paths():
     """
     return [{
         "src": "labextension",
-        "dest": "jupyter-jbang-runner"
+        "dest": "jbang-jupyter-runner"
     }]

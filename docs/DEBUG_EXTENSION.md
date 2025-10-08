@@ -11,7 +11,7 @@ jupyter labextension list
 **Expected output:**
 
 ```
-jupyter-jbang-runner v1.0.0 enabled OK (python, jupyter-jbang-runner)
+jbang-jupyter-runner v1.0.0 enabled OK (python, jbang-jupyter-runner)
 ```
 
 **If it shows "uninstalled" or is missing:**
@@ -28,12 +28,12 @@ This is the **most important** debugging step:
    - Chrome/Edge: Press `F12` or `Ctrl+Shift+I` (Windows/Linux) / `Cmd+Option+I` (Mac)
    - Firefox: Press `F12` or `Ctrl+Shift+K` (Windows/Linux) / `Cmd+Option+K` (Mac)
 3. Click on the **Console** tab
-4. Look for errors or messages related to `jupyter-jbang-runner`
+4. Look for errors or messages related to `jbang-jupyter-runner`
 
 **Expected message:**
 
 ```
-JupyterLab extension jupyter-jbang-runner is activated!
+JupyterLab extension jbang-jupyter-runner is activated!
 ```
 
 **Common errors to look for:**
@@ -56,7 +56,7 @@ python -c "import jupyter_jbang_runner; print(jupyter_jbang_runner._jupyter_labe
 
 ```
 1.0.0
-[{'src': 'labextension', 'dest': 'jupyter-jbang-runner'}]
+[{'src': 'labextension', 'dest': 'jbang-jupyter-runner'}]
 ```
 
 ## 4. Check if Files are Being Detected
@@ -67,10 +67,10 @@ Add some debug logging to help troubleshoot. Check if these files exist:
 
 ```bash
 # Check if labextension directory exists
-ls -la ~/.local/share/jupyter/labextensions/jupyter-jbang-runner/
+ls -la ~/.local/share/jupyter/labextensions/jbang-jupyter-runner/
 
 # Check if static files are present
-ls -la ~/.local/share/jupyter/labextensions/jupyter-jbang-runner/static/
+ls -la ~/.local/share/jupyter/labextensions/jbang-jupyter-runner/static/
 ```
 
 ## 5. Rebuild JupyterLab
@@ -122,7 +122,7 @@ This will show more detailed logging in the terminal.
 
 This might be a timing issue or the toolbar API changed. Check the browser console for errors when opening a file.
 
-### Issue: "jupyter-jbang-runner needs to be included in build"
+### Issue: "jbang-jupyter-runner needs to be included in build"
 
 This means `jupyter lab build` wasn't run or failed. Check:
 
@@ -143,7 +143,7 @@ Add this to the browser console to test if the extension is loaded:
 ```javascript
 // Check if the extension is registered
 console.log(
-  window.jupyterapp?.commands?.hasCommand('jupyter-jbang-runner:run-file')
+  window.jupyterapp?.commands?.hasCommand('jbang-jupyter-runner:run-file')
 );
 ```
 
@@ -155,7 +155,7 @@ In browser DevTools:
 
 1. Go to **Network** tab
 2. Reload JupyterLab
-3. Filter by "jbang" or "jupyter-jbang-runner"
+3. Filter by "jbang" or "jbang-jupyter-runner"
 4. Check if the extension's JavaScript files are loading (should see `remoteEntry.*.js`)
 
 **If files are missing or returning 404:**
@@ -170,7 +170,7 @@ Run this in a JupyterLab terminal:
 ```bash
 #!/bin/bash
 echo "=== Extension Installation Check ==="
-jupyter labextension list | grep -A 2 jupyter-jbang-runner
+jupyter labextension list | grep -A 2 jbang-jupyter-runner
 
 echo -e "\n=== Python Package Check ==="
 python -c "import jupyter_jbang_runner; print('✓ Version:', jupyter_jbang_runner.__version__)" 2>&1
@@ -179,7 +179,7 @@ echo -e "\n=== JupyterLab Version ==="
 jupyter lab --version
 
 echo -e "\n=== Extension Files ==="
-find ~/.local/share/jupyter/labextensions/jupyter-jbang-runner/ -type f 2>/dev/null | head -10
+find ~/.local/share/jupyter/labextensions/jbang-jupyter-runner/ -type f 2>/dev/null | head -10
 
 echo -e "\n=== Check if jbang is available ==="
 which jbang && echo "✓ jbang found" || echo "✗ jbang not found"

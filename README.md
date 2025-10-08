@@ -25,7 +25,7 @@ A JupyterLab extension that adds a run button to `.java` and `.jsh` files, allow
 ### For Users
 
 ```bash
-pip install jupyter-jbang-runner
+pip install jbang-jupyter-runner
 ```
 
 ### For Development
@@ -92,7 +92,7 @@ This ensures you always run the current version of your code!
 ### Project Structure
 
 ```
-jupyter-jbang-runner/
+jbang-jupyter-runner/
 ├── src/                    # TypeScript source code
 │   ├── index.ts           # Extension entry point
 │   └── runButton.ts       # Run button implementation
@@ -144,7 +144,7 @@ See [DEBUG_EXTENSION.md](./DEBUG_EXTENSION.md) for debugging tips and common iss
 
 Key debugging steps:
 
-1. Check browser console (F12) for `[jupyter-jbang-runner]` messages
+1. Check browser console (F12) for `[jbang-jupyter-runner]` messages
 2. Verify extension is installed: `jupyter labextension list`
 3. Check for TypeScript compilation errors in build output
 
@@ -163,7 +163,7 @@ The extension's main logic is in a single helper function that:
 ### Integration Points
 
 1. **Toolbar Button**: Added via `DocumentRegistry.IWidgetExtension`
-2. **Command Palette**: Registered command `jupyter-jbang-runner:run-file`
+2. **Command Palette**: Registered command `jbang-jupyter-runner:run-file`
 3. **Terminal API**: Uses `@jupyterlab/terminal` for terminal management
 
 ## Configuration
@@ -203,7 +203,7 @@ jupyter lab
 ### Run button not working
 
 1. Open browser console (F12)
-2. Look for error messages with `[jupyter-jbang-runner]` prefix
+2. Look for error messages with `[jbang-jupyter-runner]` prefix
 3. Verify jbang is installed: `jbang version`
 4. Check the [DEBUG_EXTENSION.md](./DEBUG_EXTENSION.md) guide
 

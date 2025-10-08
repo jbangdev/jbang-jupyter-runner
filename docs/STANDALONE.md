@@ -4,7 +4,7 @@ This extension is now fully self-contained and ready to be moved to its own repo
 
 ## What's Included
 
-All files needed for the extension are now in the `jupyter-jbang-runner/` directory:
+All files needed for the extension are now in the `jbang-jupyter-runner/` directory:
 
 ### 📚 Documentation
 
@@ -53,12 +53,12 @@ To create a standalone repository:
 
 ```bash
 # 1. Create a new git repository
-mkdir jupyter-jbang-runner-standalone
-cd jupyter-jbang-runner-standalone
+mkdir jbang-jupyter-runner-standalone
+cd jbang-jupyter-runner-standalone
 git init
 
 # 2. Copy the extension directory
-cp -r /path/to/jupyter-java-binder/jupyter-jbang-runner/* .
+cp -r /path/to/jupyter-java-binder/jbang-jupyter-runner/* .
 
 # 3. Clean up build artifacts
 rm -rf node_modules lib build.log
@@ -83,7 +83,7 @@ Once in its own repository:
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd jupyter-jbang-runner
+cd jbang-jupyter-runner
 
 # Install dependencies
 npm install

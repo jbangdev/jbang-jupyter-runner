@@ -1,6 +1,6 @@
 # Dependencies Reference
 
-This document provides a complete reference of all dependencies required for the jupyter-jbang-runner extension.
+This document provides a complete reference of all dependencies required for the jbang-jupyter-runner extension.
 
 ## Overview
 
@@ -43,7 +43,7 @@ The extension itself has **zero runtime dependencies** for end users:
 dependencies = []  # No runtime dependencies!
 ```
 
-This means users can install with just `pip install jupyter-jbang-runner` without any extra packages.
+This means users can install with just `pip install jbang-jupyter-runner` without any extra packages.
 
 ### Build Dependencies (pyproject.toml)
 
@@ -207,7 +207,7 @@ What do you **absolutely need** to get started?
 ### For End Users (just using the extension)
 
 ```bash
-pip install jupyter-jbang-runner
+pip install jbang-jupyter-runner
 ```
 
 That's it! No other Python packages needed.
@@ -274,7 +274,7 @@ npm outdated
 ## Dependency Graph
 
 ```
-jupyter-jbang-runner
+jbang-jupyter-runner
 │
 ├── Python Runtime
 │   └── (none - zero dependencies!)
@@ -333,7 +333,7 @@ pip list | grep jupyter
 npm list @jupyterlab/application
 
 # Clean slate
-pip uninstall jupyter-jbang-runner jupyterlab
+pip uninstall jbang-jupyter-runner jupyterlab
 uv pip install -r requirements-dev.txt
 pip install -e .
 ```

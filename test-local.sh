@@ -7,14 +7,14 @@ echo "================================================="
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Check if we're in the extension directory or parent
-if [ -f "$SCRIPT_DIR/package.json" ] && grep -q "jupyter-jbang-runner" "$SCRIPT_DIR/package.json"; then
+if [ -f "$SCRIPT_DIR/package.json" ] && grep -q "jbang-jupyter-runner" "$SCRIPT_DIR/package.json"; then
     # We're in the extension directory
     cd "$SCRIPT_DIR/.."
-elif [ -d "$SCRIPT_DIR/jupyter-jbang-runner" ]; then
+elif [ -d "$SCRIPT_DIR/jbang-jupyter-runner" ]; then
     # We're in the parent directory
     cd "$SCRIPT_DIR"
 else
-    echo "❌ Error: Cannot find jupyter-jbang-runner directory"
+    echo "❌ Error: Cannot find jbang-jupyter-runner directory"
     echo "Please run this script from the extension directory or its parent"
     exit 1
 fi
@@ -46,14 +46,14 @@ source .venv/bin/activate
 
 # Install development dependencies in virtual environment
 echo "📦 Installing development dependencies (JupyterLab + build tools)..."
-cd jupyter-jbang-runner
+cd jbang-jupyter-runner
 uv pip install -r requirements-dev.txt
 cd ..
 
 # Build extension
 echo ""
 echo "🔨 Building extension..."
-cd jupyter-jbang-runner
+cd jbang-jupyter-runner
 
 if [ ! -d "node_modules" ]; then
     echo "📦 Installing npm dependencies..."
@@ -76,10 +76,10 @@ echo "📦 Installing extension..."
 cd ..
 
 # Install Python package in virtual environment
-uv pip install -e jupyter-jbang-runner/
+uv pip install -e jbang-jupyter-runner/
 
 # Link extension to JupyterLab
-jupyter labextension develop jupyter-jbang-runner/ --overwrite
+jupyter labextension develop jbang-jupyter-runner/ --overwrite
 
 # Build JupyterLab
 echo "🏗️  Building JupyterLab..."
@@ -96,11 +96,11 @@ echo "4. Look for the run button (▶️) in the toolbar"
 echo "5. Click it to test the extension"
 echo ""
 echo "🔍 To debug:"
-echo "- Open browser console (F12) and look for [jupyter-jbang-runner] messages"
+echo "- Open browser console (F12) and look for [jbang-jupyter-runner] messages"
 echo "- Check extension list: jupyter labextension list"
 echo ""
 echo "🧹 To clean up later:"
-echo "- jupyter labextension uninstall jupyter-jbang-runner"
-echo "- uv pip uninstall jupyter-jbang-runner"
+echo "- jupyter labextension uninstall jbang-jupyter-runner"
+echo "- uv pip uninstall jbang-jupyter-runner"
 echo "- jupyter lab clean"
 echo "- rm -rf .venv"

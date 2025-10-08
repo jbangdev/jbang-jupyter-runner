@@ -30,7 +30,7 @@ The extension is automatically installed when you build the Binder environment u
 
 1. Installs and configures jbang
 2. Installs all Java kernels (jbang, jjava, rapaio, kotlin, ijava)
-3. Builds the jupyter-jbang-runner extension
+3. Builds the jbang-jupyter-runner extension
 4. Installs the extension as a Python package
 5. Links the extension to JupyterLab
 6. Rebuilds JupyterLab to include the new extension
@@ -42,7 +42,7 @@ This process ensures the run button appears in the toolbar when you open `.java`
 To develop or modify the extension:
 
 ```bash
-cd jupyter-jbang-runner
+cd jbang-jupyter-runner
 npm install
 npm run watch  # For development with auto-reload
 ```

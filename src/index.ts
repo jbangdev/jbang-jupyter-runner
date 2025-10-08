@@ -12,10 +12,10 @@ import { ICommandPalette } from '@jupyterlab/apputils';
 import { addRunButton } from './runButton';
 
 /**
- * Initialization data for the jupyter-jbang-runner extension.
+ * Initialization data for the jbang-jupyter-runner extension.
  */
 const plugin: JupyterFrontEndPlugin<void> = {
-  id: 'jupyter-jbang-runner:plugin',
+  id: 'jbang-jupyter-runner:plugin',
   autoStart: true,
   requires: [IDocumentManager, ITranslator],
   optional: [ICommandPalette],
@@ -25,13 +25,13 @@ const plugin: JupyterFrontEndPlugin<void> = {
     translator: ITranslator,
     palette: ICommandPalette | null
   ) => {
-    console.log('[jupyter-jbang-runner] Extension activating...');
-    console.log('[jupyter-jbang-runner] JupyterLab version:', app.version);
+    console.log('[jbang-jupyter-runner] Extension activating...');
+    console.log('[jbang-jupyter-runner] JupyterLab version:', app.version);
 
     // Add run button to file editors
     addRunButton(app, docManager, translator, palette);
 
-    console.log('[jupyter-jbang-runner] ✓ Extension activated successfully!');
+    console.log('[jbang-jupyter-runner] ✓ Extension activated successfully!');
   }
 };
 

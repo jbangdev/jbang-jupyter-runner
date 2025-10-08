@@ -13,10 +13,10 @@ echo "✓ Jupyter found"
 # Check if the extension is listed
 echo ""
 echo "Checking installed extensions..."
-if jupyter labextension list 2>&1 | grep -q "jupyter-jbang-runner"; then
-    echo "✓ jupyter-jbang-runner extension is installed"
+if jupyter labextension list 2>&1 | grep -q "jbang-jupyter-runner"; then
+    echo "✓ jbang-jupyter-runner extension is installed"
 else
-    echo "❌ jupyter-jbang-runner extension not found"
+    echo "❌ jbang-jupyter-runner extension not found"
     echo ""
     echo "All installed extensions:"
     jupyter labextension list

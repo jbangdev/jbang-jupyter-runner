@@ -3,8 +3,8 @@ requires = ["hatchling>=1.5.0", "jupyterlab>=4.0.0,<5", "hatch-nodejs-version>=0
 build-backend = "hatchling.build"
 
 [project]
-name = "jupyter-jbang-runner"
-version = "1.0.0"
+name = "jbang-jupyter-runner"
+version = "0.1.0"
 description = "Jupyter Lab extension to run .java and .jsh files with jbang"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -46,8 +46,8 @@ artifacts = ["jupyter_jbang_runner/labextension"]
 exclude = [".github", "binder"]
 
 [tool.hatch.build.targets.wheel.shared-data]
-"jupyter_jbang_runner/labextension" = "share/jupyter/labextensions/jupyter-jbang-runner"
-"install.json" = "share/jupyter/labextensions/jupyter-jbang-runner/install.json"
+"jupyter_jbang_runner/labextension" = "share/jupyter/labextensions/jbang-jupyter-runner"
+"install.json" = "share/jupyter/labextensions/jbang-jupyter-runner/install.json"
 
 [tool.hatch.build.hooks.jupyter-builder]
 dependencies = ["hatch-jupyter-builder>=0.5"]
